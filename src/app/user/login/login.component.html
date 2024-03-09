@@ -1,0 +1,11 @@
+<section id="loginPage">
+    <form id='loginForm' #loginForm="ngForm" (ngSubmit)="userService.loginHandler(loginForm)">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Email" ngModel required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password" ngModel required>
+
+        <input type="submit" class="register" value="Login">
+    </form>
+</section>

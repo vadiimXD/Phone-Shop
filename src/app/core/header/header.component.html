@@ -1,0 +1,18 @@
+<nav>
+    <ul *ngIf="isLogged">
+        <li routerLink="">Home</li>
+        <li routerLink="catalog">Catalog</li>
+        <li routerLink="add/offer">Add Offer</li>
+        <li routerLink="search">Search</li>
+        <li routerLink="logout" (click)="userService.logoutHandler()">Logout</li>
+    </ul>
+
+    <ul *ngIf="!isLogged">
+        <li routerLink="">Home</li>
+        <li routerLink="catalog">Catalog</li>
+        <li routerLink="search">Search</li>
+        <li routerLink="login">Login</li>
+        <li routerLink="register">Register</li>
+    </ul>
+    <img *ngIf="isLogged"  routerLink="profile"src="https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png">
+</nav>

@@ -1,0 +1,86 @@
+.search {
+    margin-bottom: 50px;
+}
+
+.search h1 {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.searchForm input,
+select {
+    width: 30%;
+    color: black;
+    border-radius: 20px;
+    height: 40px;
+    border: 1px solid #fff;
+    font-size: 18px;
+}
+
+.searchForm button {
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+    color: black;
+    font-size: 20px;
+    border: 1px solid rgb(214, 209, 209);
+    border-radius: 20px;
+}
+
+.search-list {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.no-match {
+    background: rgba(0, 0, 0, 0.703);
+    display: inline-block;
+    width: 60%;
+    height: 100px;
+    margin-top: 5%;
+    color: white;
+    border: 1px solid white;
+}
+
+.no-match p {
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.picture {
+    width: 300px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.picture:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+.electronics {
+    color: white;
+    cursor: pointer;
+    width: 500px;
+    border: 2px solid white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.551);
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 300px;
+}
+
+button:hover {
+    background-color: rgb(212, 212, 212);
+}

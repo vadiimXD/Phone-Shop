@@ -1,0 +1,170 @@
+#user {
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.551);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.user-logo img {
+  width: 20%;
+  height: 30%;
+  border: 1px solid white;
+  border-radius: 100px;
+  margin-top: 10px;
+}
+
+.user-info h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+  color: white;
+}
+
+
+
+.user-info .offer-count {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-style: italic;
+  color: white;
+}
+
+.user-info .buy-count {
+  text-align: center;
+  font-size: 22px;
+  padding-bottom: 10px;
+  font-style: italic;
+  color: white;
+}
+
+.profile-offer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2%;
+}
+
+.profile-offer .buy-offer,
+.created-offer {
+  margin: 4px, 4px;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.551);
+  border-radius: 20px;
+  width: 500px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+.profile-offer .buy-offer .section-model {
+  text-align: center;
+  color: white;
+}
+
+.profile-offer .created-offer .section-model {
+  text-align: center;
+  color: white;
+}
+
+.profile-offer .info {
+  padding: 20px;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.551);
+  border-radius: 10%;
+  color: white;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.profile-offer .model {
+  font-size: 22px;
+  text-align: center;
+  height: 40%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+}
+
+.profile-offer .author {
+  font-size: 16px;
+}
+
+.profile-offer .type {
+  text-align: left;
+}
+
+.profile-offer .more-details {
+  background-color: #9e9e9e;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  position: relative;
+  left: 12%;
+}
+
+
+
+
+.profile-offer a {
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+
+.no-offer-in-profile {
+  font-style: italic;
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 30px;
+  color: white;
+}
+
+
+.picture {
+  width: 50%;
+  height: 50%;
+  border: 1px solid white;
+}
+
+p {
+  color: white;
+  text-decoration: underline;
+}
+
+p:hover {
+  cursor: pointer;
+}
+
+.user-email {
+  color: White
+}

@@ -1,0 +1,17 @@
+<section id="registerPage">
+    <form id='registerForm' #registerForm="ngForm" (ngSubmit)="userService.registerHandler(registerForm)">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Email" ngModel required minlength="5">
+ 
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your Username" ngModel required min="2">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password" ngModel required min="3">
+
+        <label for="rePassword">Repeat Password:</label>
+        <input type="password" id="rePassword" name="repassword" placeholder="Repeat Password" ngModel required minlength="3" [appCheck]="registerForm.value.password">
+
+        <input type="submit" class="register" value="Register">
+    </form>
+</section>

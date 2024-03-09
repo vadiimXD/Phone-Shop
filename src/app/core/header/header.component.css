@@ -1,0 +1,54 @@
+li:hover {
+    color: black;
+}
+
+ul {
+    padding-inline-start: 0;
+}
+
+input[type=submit]:hover,
+ul>li:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: whitesmoke;
+
+}
+
+img {
+    width: 80px;
+    position: absolute;
+    top: -1%;
+    right: -0%;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+li {
+    text-decoration: none;
+    list-style-type: none;
+    display: inline-block;
+    border: 2px solid white;
+    padding: 10px;
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+
+nav {
+    background: black;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+nav>ul {
+    text-align: center;
+    margin: 0 5px;
+    color: white;
+}

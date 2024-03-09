@@ -1,0 +1,19 @@
+.errorPage {
+    text-align: center;
+    margin-top: 3%;
+    background-color: white;
+}
+
+.errorPage h1 {
+    color: black;
+    letter-spacing: 5px;
+    font-size: 150px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.errorPage p {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}

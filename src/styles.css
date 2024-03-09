@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.google.com/specimen/Roboto+Condensed');
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: url("https://media.idownloadblog.com/wp-content/uploads/2023/01/Consdering-the-color-orange-iPhone-wallpaper-idownloadblog-mockup.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+* {
+    font-family: Roboto, "Condensed", serif;
+}
+
+
+
+img {
+    width: 35px;
+    height: 35px;
+    margin-top: 25px;
+}
+
+h2 {
+    font-size: 50px;
+    margin: 0;
+}
+
+label {
+    color: gray;
+    font-size: 25px;
+}
+
+section {
+    text-align: center;
+    margin-top: 5px;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+    border: 2px solid lightsteelblue;
+    padding: 5px;
+}
