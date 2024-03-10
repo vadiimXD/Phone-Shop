@@ -54,7 +54,6 @@ export class UserService {
     };
 
     this.http.post<User>("http://localhost:1337/register", registerForm.value, options).subscribe((data) => {
-
       if (data) {
         localStorage.setItem("auth", JSON.stringify(data))
         this.router.navigate(['']);

@@ -1,42 +1,84 @@
 #createPage {
-    text-align: center;
-    margin-top: 5px;
-    position: relative;
-  }
-  
-  #create {
-    padding-top: 1%;
-    display: inline-block;
-    margin-top: 2%;
-    margin-bottom: 4%;
-    background: rgba(0, 0, 0, 0.703);
-    width: 40%;
-    border: 1px solid white;
-    border-radius: 20px;
-  }
-  
-  #create label {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: white;
-    font-weight: bold;
-  }
-  
-  #create input {
-    background: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    font-size: 16px;
-  }
-  
-  #create input[type="submit"] {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 40%;
-    font-size: 20px;
-  }
-  
+  text-align: center;
+  margin-top: 5px;
+  position: relative;
+}
 
-  #create input:hover{
-    background-color: rgb(212, 212, 212);
-  }
+#create {
+  padding-top: 1%;
+  display: inline-block;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  background: rgba(0, 0, 0, 0.703);
+  width: 40%;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+#create label {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+#create input {
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#create input[type="submit"] {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 40%;
+  font-size: 20px;
+}
+
+
+#create input:hover {
+  background-color: rgb(212, 212, 212);
+}
+
+
+select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+select {
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 28%;
+  height: 30px;
+  color: black;
+  font-weight: normal;
+}
+
+select:invalid {
+  color: gray;
+}
+
+select:hover {
+  background-color: rgb(212, 212, 212);
+}
+
+option {
+  color: black;
+}
+
+.error {
+  position: absolute;
+  color: white;
+  background: rgba(0, 0, 0, 0.703);
+  padding: 40px;
+  width: 20%;
+  font-size: 30px;
+  top: 20%;
+  border: 2px solid white;
+}

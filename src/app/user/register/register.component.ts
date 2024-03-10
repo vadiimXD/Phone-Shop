@@ -9,3 +9,4 @@ import { UserService } from '../user.service';
 export class RegisterComponent {
 constructor(public userService:UserService){}
 }
+ 

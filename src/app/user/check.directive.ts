@@ -17,10 +17,12 @@ export class CheckDirective {
   constructor() { }
 
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
-
-    if (!this.appCheck) return { Error: "Empty fields.." }
-    if (!control.value) return { Error: "Empty fields.." }
-    if (control.value !== this.appCheck) return { Error: "Passwords dont matches!" }
+    const password = this.appCheck
+    const repassword = control.value
+    
+    if (!password) return { Error: "Empty fields.." }
+    if (!repassword) return { Error: "Empty fields.." }
+    if (repassword !== password) return { Error: "Passwords dont matches!" }
 
     return null
   }

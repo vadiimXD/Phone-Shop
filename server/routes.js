@@ -1,13 +1,9 @@
 const router = require("express").Router();
 
 const authController = require("./controllers/authController")
-
-// router.get("/", (req, res) => {
-//     res.json({
-//         message: "Hello from my server"
-//     })
-// })
+const phoneController = require("./controllers/phoneController")
 
 router.use(authController)
+router.use(phoneController)
 
 module.exports = router
