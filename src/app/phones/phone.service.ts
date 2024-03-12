@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { NgForm, ValidationErrors } from '@angular/forms';
 import { errorHandler } from '../../utils/errorHandler'
 import { Error } from 'src/types/Error';
@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 })
 export class PhoneService {
   data: Error | null = null
+  phones: Phone[] | undefined;
   constructor(private http: HttpClient, private router: Router) {
 
   }
 
 
   createHandler(createForm: NgForm) {
-
 
     if (createForm.invalid) {
       this.data = errorHandler(createForm)
@@ -49,5 +49,9 @@ export class PhoneService {
       }
     });
 
+  }
+
+  getAllPhones() {
+    return this.http.get<Phone[]>("http://localhost:1337/catalog")
   }
 }

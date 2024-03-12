@@ -1,11 +1,12 @@
 export type Phone = {
-    name:string
+    _id: string
+    name: string
     type: string
     damages: string
     image: string
     description: string
-    production: string
+    year: string
     price: string
-    buyingList: string[]
+    boughtFrom: string
     owner: string
 }

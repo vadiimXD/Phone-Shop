@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadsService } from '../../core/loader/loads.service';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,13 @@ import { LoadsService } from '../../core/loader/loads.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public loaderService: LoadsService) { }
+  constructor(public loaderService: LoadsService, private userService:UserService) { }
 
   ngOnInit(): void {
-
+ 
   }
-
+  get isLogged(): boolean {
+    return this.userService.checkIsLogged
+  }
 
 }

@@ -1,18 +1,18 @@
 <section id="viewCatalog" class="background-img">
-    <div class="wrapper-electronics">
+    <div class="wrapper-electronics" *ngIf="phones" >
 
-        <a href="#" class="electronics">
-            <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2019/10/IMG_20191022_122235.jpg"
+        <a href="{{phone._id}}" class="electronics" *ngFor="let phone of phones">
+            <img src="{{phone.image}}"
                 class="picture">
-            <h3>Iphone</h3>
-            <span>Price: $153</span>
+            <h3>{{phone.name}}</h3>
+            <span>Price: ${{phone.price}}</span>
         </a>
 
 
     </div>
 
 
-    <div class="error">
+    <div class="error" *ngIf="!phones">
         There are no phones found...
     </div>
 </section>

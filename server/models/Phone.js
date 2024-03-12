@@ -13,7 +13,6 @@ const PhoneSchema = new mongoose.Schema({
     },
     damages: {
         type: String,
-        required: true,
         minLength: 4,
     },
     image: {
@@ -27,7 +26,7 @@ const PhoneSchema = new mongoose.Schema({
         minLength: 5,
         maxLength: 200,
     },
-    production: {
+    year: {
         type: Number,
         required: true,
         min: 1900,
@@ -38,10 +37,10 @@ const PhoneSchema = new mongoose.Schema({
         required: true,
         min: 0
     },
-    buyingList: [{
+    boughtFrom: {
         type: mongoose.Types.ObjectId,
         ref: "User"
-    }],
+    },
     owner: {
         type: mongoose.Types.ObjectId,
         ref: "User"
