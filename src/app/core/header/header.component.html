@@ -1,18 +1,24 @@
 <nav>
     <ul *ngIf="isLogged">
-        <li routerLink="">Home</li>
-        <li routerLink="catalog">Catalog</li>
-        <li routerLink="add/offer">Add Offer</li>
-        <li routerLink="search">Search</li>
-        <li routerLink="logout" (click)="userService.logoutHandler()">Logout</li>
+        <img routerLink="search" class="search"
+            src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png">
+        <img routerLink="catalog" class="catalog" class="catalog"
+            src="https://static.thenounproject.com/png/155858-200.png">
+            <img routerLink="" class="home"
+                src="https://www.freeiconspng.com/thumbs/house-png/home-icon-png-home-house-icon-24.png">
+        <img routerLink="add/offer" class="add" src="https://cdn-icons-png.freepik.com/512/68/68738.png">
+        <img routerLink="logout" class="logout" (click)="userService.logoutHandler()" src="../../../assets/logout.png">
+        <img routerLink="profile" class="profile"
+            src="https://static-00.iconduck.com/assets.00/profile-icon-512x512-w0uaq4yr.png">
     </ul>
 
     <ul *ngIf="!isLogged">
-        <li routerLink="">Home</li>
-        <li routerLink="catalog">Catalog</li>
-        <li routerLink="search">Search</li>
-        <li routerLink="login">Login</li>
-        <li routerLink="register">Register</li>
+        <img routerLink="search" class="search"
+        src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png">
+        <img routerLink="catalog" class="catalog" src="https://static.thenounproject.com/png/155858-200.png">
+        <img routerLink="" class="home"
+        src="https://www.freeiconspng.com/thumbs/house-png/home-icon-png-home-house-icon-24.png">
+        <img routerLink="login" class="login" src="../../../assets/login.png">
+        <img routerLink="register" class="register" src="../../../assets/register.png">
     </ul>
-    <img *ngIf="isLogged"  routerLink="profile"src="https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png">
 </nav>

@@ -1,44 +1,82 @@
-li:hover {
-    color: black;
-    background-color: black;
-}
-
 ul {
     padding-inline-start: 0;
 }
 
 input[type=submit]:hover,
-ul>li:hover {
+ul>img:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background-color: whitesmoke;
+}
+
+
+.home {
+    position: relative;
+    width: 43px;
+    height: 40px;
+}
+
+.profile {
+    position: relative;
+    right: 75px;
+}
+.add {
+    width: 43px;
+    height: 40px;
+}
+
+.logout {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    right: 36.7px;
+    top: 24px;
+
+}
+
+.search {
+    position: relative;
+    bottom: 6px;
+}
+
+.catalog {
+    position: relative;
+    width: 50px;
+    height: 43px;
+
+}
+
+.login {
+    position: relative;
+    width: 80px;
+    height: 60px;
+    bottom: -11px;
+    left: -15px;
+}
+
+.register {
+    position: relative;
+    width: 80px;
+    height: 70px;
+    bottom: -15px;
+    left: -70px;
+}
+
+
+img:hover {
+    cursor: pointer;
 }
 
 img {
-    width: 80px;
-    position: absolute;
-    top: -1%;
-    right: -0%;
-}
-
-img:hover{
-    cursor: pointer;
-}
-
-li {
-    text-decoration: none;
-    list-style-type: none;
-    display: inline-block;
-    border: 2px solid white;
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
-    width: 100px;
-    text-align: center;
+    width: 35px;
+
 }
 
 
 nav {
-    background: black;
+    background: rgb(112, 169, 207);
+    color: black;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -49,6 +87,6 @@ nav {
 
 nav>ul {
     text-align: center;
-    margin: 0 5px;
+    margin: -20px;
     color: white;
 }

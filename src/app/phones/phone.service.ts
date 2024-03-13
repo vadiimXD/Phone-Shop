@@ -54,4 +54,9 @@ export class PhoneService {
   getAllPhones() {
     return this.http.get<Phone[]>("http://localhost:1337/catalog")
   }
+
+
+  getPhone(phoneId: string) {
+    return this.http.get<Phone>(`http://localhost:1337/details/${phoneId}`)
+  }
 }

@@ -18,12 +18,21 @@ router.post("/create", async (req, res) => {
 router.get("/catalog", async (req, res) => {
     try {
         const phones = await phonesService.getAllPhones().lean().populate("owner")
-        console.log(phones)
         res.json(phones)
     } catch (error) {
         res.send(false)
     }
 })
+
+router.get("/details/:productId", async (req, res) => {
+    try {
+        const product = await phonesService.getOneProduct(req.params.productId).lean();
+        res.json(product)
+    } catch (error) {
+        res.send(false)
+    }
+})
+
 
 
 
