@@ -1,7 +1,7 @@
 <section id="viewCatalog" class="background-img">
     <div class="wrapper-electronics" *ngIf="phones" >
 
-        <a href="{{phone._id}}" class="electronics" *ngFor="let phone of phones">
+        <a routerLink="/details/{{phone._id}}"class="electronics" *ngFor="let phone of phones">
             <img src="{{phone.image}}"
                 class="picture">
             <h3>{{phone.name}}</h3>

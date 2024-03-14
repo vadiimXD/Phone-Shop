@@ -7,6 +7,7 @@ import { EditComponent } from './edit/edit.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { CreateComponent } from './create/create.component';
   declarations: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent]
 })

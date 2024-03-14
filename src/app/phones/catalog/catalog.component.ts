@@ -18,7 +18,6 @@ export class CatalogComponent implements OnInit {
     const phone$ = this.phoneService.getAllPhones()
     phone$.subscribe(phones => {
       this.phones = phones
-      console.log(this.phones)
     })
   }
 

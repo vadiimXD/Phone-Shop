@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { UserModule } from './user/user.module';
 import { StaticModule } from './static/static.module';
 import { PhonesModule } from './phones/phones.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { PhonesModule } from './phones/phones.module';
     FormsModule,
     RouterModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

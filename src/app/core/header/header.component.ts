@@ -10,6 +10,7 @@ import { UserService } from 'src/app/user/user.service';
 export class HeaderComponent {
   constructor(public loaderService: LoadsService, public userService: UserService) { }
 
+  
 
   get isLogged(): boolean {
     return this.userService.checkIsLogged

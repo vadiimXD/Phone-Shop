@@ -1,24 +1,19 @@
 <nav>
     <ul *ngIf="isLogged">
-        <img routerLink="search" class="search"
-            src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png">
-        <img routerLink="catalog" class="catalog" class="catalog"
-            src="https://static.thenounproject.com/png/155858-200.png">
-            <img routerLink="" class="home"
-                src="https://www.freeiconspng.com/thumbs/house-png/home-icon-png-home-house-icon-24.png">
-        <img routerLink="add/offer" class="add" src="https://cdn-icons-png.freepik.com/512/68/68738.png">
-        <img routerLink="logout" class="logout" (click)="userService.logoutHandler()" src="../../../assets/logout.png">
-        <img routerLink="profile" class="profile"
-            src="https://static-00.iconduck.com/assets.00/profile-icon-512x512-w0uaq4yr.png">
+        <mat-icon routerLink="search">search</mat-icon>
+        <mat-icon routerLink="catalog">dashboard</mat-icon>
+        <mat-icon routerLink="">home</mat-icon>
+        <mat-icon routerLink="add/offer">add</mat-icon>
+        <mat-icon routerLink="logout" (click)="userService.logoutHandler()">logout</mat-icon>
+        <mat-icon routerLink="profile">person</mat-icon>
     </ul>
 
     <ul *ngIf="!isLogged">
-        <img routerLink="search" class="search"
-        src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.png">
-        <img routerLink="catalog" class="catalog" src="https://static.thenounproject.com/png/155858-200.png">
-        <img routerLink="" class="home"
-        src="https://www.freeiconspng.com/thumbs/house-png/home-icon-png-home-house-icon-24.png">
-        <img routerLink="login" class="login" src="../../../assets/login.png">
-        <img routerLink="register" class="register" src="../../../assets/register.png">
+        <mat-icon routerLink="search">search</mat-icon>
+        <mat-icon routerLink="catalog">dashboard</mat-icon>
+        <mat-icon routerLink="">home</mat-icon>
+        <mat-icon routerLink="login">login</mat-icon>
+        <mat-icon routerLink="register">app_registration</mat-icon>
+
     </ul>
 </nav>

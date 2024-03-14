@@ -1,4 +1,6 @@
 <section id="createPage">
+    <h1>Add offer</h1>
+    
     <form id='create' #createForm="ngForm" (ngSubmit)="phoneService.createHandler(createForm)">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Name..." ngModel required="required" minlength="2">
@@ -27,7 +29,7 @@
         <input type="text" id="description" name="description" placeholder="Description..." ngModel required
             minlength="7">
 
-        <input type="submit" class="create" value="Create Offer">
+        <input type="submit"  class="create" value="Create Offer">
     </form>
 
     <div *ngIf="phoneService.data" class="error">{{phoneService.data.message}}</div>

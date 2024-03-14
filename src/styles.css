@@ -4,7 +4,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background: url("./assets/background.jpg");
+    background: url("https://bs-uploads.toptal.io/blackfish-uploads/components/seo/6036917/og_image/optimized/mobile-ux-design-best-practices-9874a6518f6e4130f6b5edc1c72c60bc.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -49,3 +49,6 @@ input {
     border: 2px solid lightsteelblue;
     padding: 5px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

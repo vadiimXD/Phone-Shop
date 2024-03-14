@@ -39,7 +39,7 @@ select {
 }
 
 .no-match {
-    background: rgba(0, 0, 0, 0.703);
+    background: rgba(0, 0, 0, 0.551);
     display: inline-block;
     width: 60%;
     height: 100px;
