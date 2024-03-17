@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(public loaderService: LoadsService) { }
 
 
-ngOnInit(): void {
-  
-}
+  ngOnInit(): void {
+
+  }
 }

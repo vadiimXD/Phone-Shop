@@ -1,3 +1,5 @@
+import { User } from "./User"
+
 export type Phone = {
     _id: string
     name: string
@@ -7,6 +9,6 @@ export type Phone = {
     description: string
     year: string
     price: string
-    boughtFrom: string
-    owner: string
+    boughtFrom: User
+    owner: User
 }

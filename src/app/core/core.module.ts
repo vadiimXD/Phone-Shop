@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon'
+import { LoadsService } from './loader/loads.service';
 
 
 

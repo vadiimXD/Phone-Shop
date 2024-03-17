@@ -10,7 +10,7 @@ ul>mat-icon:hover {
 
 
 nav {
-    background: rgb(55, 103, 236);
+    background: white;
     color: black;
     width: 100%;
     display: flex;
@@ -28,7 +28,7 @@ nav>ul {
 mat-icon {
     padding: 5px;
     margin: 10px;
-    width: 20px;
-    color: black;
+    width: auto;
     font-size: 30px;
+    color: black;
 }

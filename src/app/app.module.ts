@@ -15,7 +15,6 @@ import { PhonesModule } from './phones/phones.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
- 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

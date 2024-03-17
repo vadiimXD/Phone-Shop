@@ -1,5 +1,4 @@
-
-#viewCatalog{
+#viewCatalog {
     margin-bottom: 5%;
     margin-top: 3%;
 }
@@ -52,4 +51,17 @@ h3 {
     width: 30%;
     font-size: 30px;
     border: 2px solid white;
+}
+
+h1 {
+
+    font-size: 25px;
+    color: white;
+
+}
+
+
+mat-icon {
+    position: relative;
+left: 175px;
 }

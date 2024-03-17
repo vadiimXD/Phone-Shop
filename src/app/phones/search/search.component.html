@@ -1,9 +1,13 @@
 <section class="search">
-    <h1>Search</h1>
+    <h1>Search offers</h1>
 
     <form class="searchForm" action="#" method="">
         <input type="text" class="search-name" name="" placeholder="Search Name...">
-        <input type="text" class="search-type" name="" placeholder="Search Type...">
+        <select name="type" class="searc-type" id="type" required ngModel>
+            <option disabled value="">Select type...</option>
+            <option>Used</option>
+            <option>New</option>
+        </select> <br> <br>
         <button type="submit" class="btn-search">Search</button>
     </form>
 

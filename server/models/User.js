@@ -13,7 +13,19 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    shoppingCart: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Phone"
+    }],
+    boughtList: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Phone"
+    }],
+    createdOffers: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Phone"
+    }],
 })
 
 

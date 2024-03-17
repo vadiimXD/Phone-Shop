@@ -1,4 +1,5 @@
 <section id="registerPage">
+    <h1>Register</h1>
     <form id='registerForm' #registerForm="ngForm" (ngSubmit)="userService.registerHandler(registerForm)">
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" placeholder="Email" ngModel required minlength="5">

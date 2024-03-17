@@ -1,27 +1,34 @@
 <section id="detailsPage">
     <div id="info">
-        <h1>Name: Iphone 11 Pro Max</h1>
-        <div class="product-info"><img src="./image/laptop.webp"></div>
+        <h1>Model: {{phone?.name}}</h1>
+        <div class="product-info"><img src="{{phone?.image}}"></div>
 
         <div class="pruduct-info">
-            <h3>Type: Used</h3>
-            <h3>Year of Production: 2008</h3>
-            <h3>Years of Exploitation: 12</h3>
-            <h3>Damages: The product has minimal signs of use.</h3>
-            <h3>Description: The newest iphone</h3>
-            <h2>Price: $153</h2>
+            <h3>Type: {{phone?.type}}</h3>
+            <h3>Year of Production: {{phone?.year}}</h3>
+            <h3>Damages: {{phone?.damages}}</h3>
+            <h3>Description: {{phone?.description}}</h3>
+            <h2>Price: ${{phone?.price}}</h2>
         </div>
 
 
         <div class="buttons">
+            <ng-container *ngIf="currentUser">
+                <ng-container *ngIf="isOwner" class="buttons">
+                    <a class="edit-btn" routerLink="/edit/{{phone?._id}}">Edit</a>
+                    <a class="delete-btn">Delete</a>
+                </ng-container>
 
-            <a href="#" class="buy-btn">Buy</a>
+                <ng-container *ngIf="!isOwner">
+                    <a class="buy-btn" *ngIf="!phone?.boughtFrom"
+                        (click)="phoneService.buyPhone(currentUser,phone?._id)">Buy</a>
+                </ng-container>
+            </ng-container>
 
-
-            <a href="#" class="edit-btn">Edit</a>
-            <a href="#" class="delete-btn">Delete</a>
-
-            <p><span class="buy">Phone is purchased by ...</span></p>
+            <ng-container *ngIf="!isOwner">
+                <p *ngIf="phone?.boughtFrom"><span class="buy">Phone is purchased by {{phone?.boughtFrom?.email}}</span>
+                </p>
+            </ng-container>
         </div>
     </div>
 </section>

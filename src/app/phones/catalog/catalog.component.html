@@ -1,4 +1,5 @@
 <section id="viewCatalog" class="background-img">
+    <h1>Catalog</h1>
     <div class="wrapper-electronics" *ngIf="phones" >
 
         <a routerLink="/details/{{phone._id}}"class="electronics" *ngFor="let phone of phones">
@@ -6,6 +7,8 @@
                 class="picture">
             <h3>{{phone.name}}</h3>
             <span>Price: ${{phone.price}}</span>
+
+            <mat-icon>add_shopping_cart</mat-icon>
         </a>
 
 

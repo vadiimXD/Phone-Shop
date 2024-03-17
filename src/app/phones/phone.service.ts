@@ -6,6 +6,7 @@ import { Error } from 'src/types/Error';
 import { User } from 'src/types/User';
 import { Phone } from 'src/types/Phone';
 import { Router } from '@angular/router';
+import { authUser } from 'src/types/authUser';
 @Injectable({
   providedIn: 'root'
 })
@@ -58,5 +59,26 @@ export class PhoneService {
 
   getPhone(phoneId: string) {
     return this.http.get<Phone>(`http://localhost:1337/details/${phoneId}`)
+  }
+
+  buyPhone(user: authUser, phoneId: string | undefined) {
+
+    let options: any = {
+      headers: {
+        'Content-Type': 'application/json',
+        "X-Authorization": user.token
+      }
+    };
+
+    this.http.post("http://localhost:1337/buy", { userId: user.userId, phoneId }, options).subscribe((data) => {
+      if (data) {
+        
+        this.router.navigate(['catalog']);
+
+      } else {
+        alert("Error")
+        //ToDo
+      }
+    })
   }
 }

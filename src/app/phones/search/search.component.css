@@ -84,3 +84,12 @@ select {
 button:hover {
     background-color: rgb(212, 212, 212);
 }
+
+select {
+height: 50px;
+width: 590px;
+}
+
+select:invalid {
+    color: gray;
+}

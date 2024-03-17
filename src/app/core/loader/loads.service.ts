@@ -13,4 +13,6 @@ export class LoadsService {
   hideLoader() {
     this.isHidden = true
   }
+
+
 }

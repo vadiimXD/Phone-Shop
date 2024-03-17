@@ -1,11 +1,12 @@
 <nav>
     <ul *ngIf="isLogged">
         <mat-icon routerLink="search">search</mat-icon>
+        <mat-icon routerLink="add/offer">add</mat-icon>
         <mat-icon routerLink="catalog">dashboard</mat-icon>
         <mat-icon routerLink="">home</mat-icon>
-        <mat-icon routerLink="add/offer">add</mat-icon>
         <mat-icon routerLink="logout" (click)="userService.logoutHandler()">logout</mat-icon>
         <mat-icon routerLink="profile">person</mat-icon>
+        <mat-icon routerLink="profile">shopping_cart</mat-icon>
     </ul>
 
     <ul *ngIf="!isLogged">
@@ -14,6 +15,5 @@
         <mat-icon routerLink="">home</mat-icon>
         <mat-icon routerLink="login">login</mat-icon>
         <mat-icon routerLink="register">app_registration</mat-icon>
-
     </ul>
 </nav>

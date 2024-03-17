@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon'
 
 
 
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatIconModule
   ],
   exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent]
 })

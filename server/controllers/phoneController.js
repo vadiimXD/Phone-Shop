@@ -26,8 +26,17 @@ router.get("/catalog", async (req, res) => {
 
 router.get("/details/:productId", async (req, res) => {
     try {
-        const product = await phonesService.getOneProduct(req.params.productId).lean();
+        const product = await phonesService.getOneProduct(req.params.productId).lean().populate("owner").populate("boughtFrom");
         res.json(product)
+    } catch (error) {
+        res.send(false)
+    }
+})
+
+router.post("/buy", async (req, res) => {
+    try {
+        await phonesService.buyProduct(req.body.phoneId, req.body.userId)
+        res.send(true)
     } catch (error) {
         res.send(false)
     }
