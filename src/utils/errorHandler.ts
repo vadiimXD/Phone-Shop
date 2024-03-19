@@ -1,28 +1,25 @@
-import { NgForm } from "@angular/forms";
+import { FormGroup, NgForm } from "@angular/forms";
 import { Error } from "src/types/Error";
 
-export function errorHandler(form: NgForm) {
+export function errorHandler(form: NgForm | FormGroup) {
     if (form.controls["name"].errors) {
         return <Error>{
             message: "Invalid name!",
             field: "name"
         }
     }
-
     if (form.controls["type"].errors) {
         return <Error>{
             message: "Type field is required!",
             field: "type"
         }
     }
-
-    if (form.controls["production"].errors) {
+    if (form.controls["year"].errors) {
         return <Error>{
             message: "Invalid year!",
             field: "production"
         }
     }
-
     if (form.controls["damages"].errors) {
         return <Error>{
             message: "Damages fields is required!",

@@ -10,6 +10,8 @@ exports.createOffer = async (body) => {
 
 exports.getAllPhones = () => { return Phone.find() }
 
+exports.updateProduct = (productId, body) => { return Phone.findByIdAndUpdate(productId, body, { runValidators: true }) }
+
 exports.getOneProduct = (productId) => { return Phone.findById(productId) }
 
 exports.buyProduct = async (productId, userId) => {

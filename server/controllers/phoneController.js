@@ -42,6 +42,14 @@ router.post("/buy", async (req, res) => {
     }
 })
 
+router.post("/edit", async (req, res) => {
+    try {
+        await phonesService.updateProduct(req.body.id, req.body.body)
+        res.send({ edited: true })
+    } catch (error) {
+        res.send(false)
+    }
+})
 
 
 

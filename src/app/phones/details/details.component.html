@@ -15,8 +15,15 @@
         <div class="buttons">
             <ng-container *ngIf="currentUser">
                 <ng-container *ngIf="isOwner" class="buttons">
-                    <a class="edit-btn" routerLink="/edit/{{phone?._id}}">Edit</a>
-                    <a class="delete-btn">Delete</a>
+
+
+                    <ng-container *ngIf="phone?.boughtFrom">
+                        <a class="delete-btn">Delete</a>
+                    </ng-container>
+                    <ng-container *ngIf="!phone?.boughtFrom">
+                        <a class="edit-btn" routerLink="/edit/{{phone?._id}}">Edit</a>
+                        <a class="delete-btn">Delete</a>
+                    </ng-container>
                 </ng-container>
 
                 <ng-container *ngIf="!isOwner">
@@ -25,10 +32,9 @@
                 </ng-container>
             </ng-container>
 
-            <ng-container *ngIf="!isOwner">
-                <p *ngIf="phone?.boughtFrom"><span class="buy">Phone is purchased by {{phone?.boughtFrom?.email}}</span>
-                </p>
-            </ng-container>
+            <p *ngIf="phone?.boughtFrom"><span class="buy">Phone is purchased by {{phone?.boughtFrom?.email}}</span>
+            </p>
+
         </div>
     </div>
 </section>

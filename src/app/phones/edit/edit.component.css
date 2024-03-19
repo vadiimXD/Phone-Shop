@@ -78,3 +78,14 @@ select:hover {
 option {
   color: black;
 }
+
+.error {
+  position: absolute;
+  color: white;
+  background: rgba(0, 0, 0, 0.703);
+  padding: 40px;
+  width: 20%;
+  font-size: 30px;
+  top: 20%;
+  border: 2px solid white;
+}

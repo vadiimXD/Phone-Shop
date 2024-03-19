@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectorRef, Injectable } from '@angular/core';
-import { NgForm, ValidationErrors } from '@angular/forms';
+import { Injectable } from '@angular/core';
+import { FormGroup, NgForm, } from '@angular/forms';
 import { errorHandler } from '../../utils/errorHandler'
 import { Error } from 'src/types/Error';
 import { User } from 'src/types/User';
 import { Phone } from 'src/types/Phone';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { authUser } from 'src/types/authUser';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class PhoneService {
   data: Error | null = null
   phones: Phone[] | undefined;
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private activeRoutes: ActivatedRoute) {
 
   }
 
@@ -72,7 +74,7 @@ export class PhoneService {
 
     this.http.post("http://localhost:1337/buy", { userId: user.userId, phoneId }, options).subscribe((data) => {
       if (data) {
-        
+
         this.router.navigate(['catalog']);
 
       } else {
@@ -81,4 +83,33 @@ export class PhoneService {
       }
     })
   }
+
+  editPhone(editForm: NgForm, phoneId: string) {
+
+    if (editForm.invalid) {
+      this.data = errorHandler(editForm)
+      return
+    }
+
+    this.data = null
+
+    const userString: string | null = localStorage.getItem("auth")
+    const auth: User | null = userString && JSON.parse(userString)
+
+    let options: any = {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': auth?.token
+      }
+    };
+
+    this.http.post<Phone>(`http://localhost:1337/edit`, { body: editForm.value, id: phoneId }, options).subscribe((data) => {
+      if (data) {
+        this.router.navigate([`/details/${phoneId}`])
+      } else {
+        this.data = { field: "Server", message: "Server Error!" }
+      }
+    });
+  }
+
 }

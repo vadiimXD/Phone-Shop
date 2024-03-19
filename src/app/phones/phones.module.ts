@@ -5,7 +5,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { SearchComponent } from './search/search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon'
@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon'
     CommonModule,
     FormsModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent]
 })

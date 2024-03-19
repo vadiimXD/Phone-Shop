@@ -1,7 +1,7 @@
 import { User } from "./User"
 
 export type Phone = {
-    _id: string
+    _id?: string
     name: string
     type: string
     damages: string
