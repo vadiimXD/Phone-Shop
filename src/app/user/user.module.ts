@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { CheckDirective } from './check.directive';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ import { CheckDirective } from './check.directive';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [RegisterComponent, LoginComponent, ProfileComponent]
 })

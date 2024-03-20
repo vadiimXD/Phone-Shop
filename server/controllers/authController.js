@@ -22,5 +22,14 @@ router.post("/login", async (req, res) => {
     }
 })
 
+router.get("/user/:userId", async (req, res) => {
+    try {
+        const user = await authService.getUserById(req.params.userId).populate("shoppingCart").populate("createdOffers").populate("boughtList");
+        res.json(user)
+    } catch (error) {
+        res.send(false)
+    }
+})
+
 
 module.exports = router

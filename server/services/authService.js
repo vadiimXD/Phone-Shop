@@ -16,7 +16,7 @@ exports.registerUser = async (email, password, body) => {
     const salt = await bcrypt.genSalt();
     const saltedHash = await bcrypt.hash(password, salt);
 
-    await User.create({ email, password: saltedHash, username: body.username })
+    await User.create({ email, password: saltedHash, username: body.username, profileImg: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" })
 
     const user = await this.getUser(email);
     const token = await this.createToken(user._id);
@@ -28,6 +28,8 @@ exports.registerUser = async (email, password, body) => {
 }
 
 exports.getUser = async (email) => { return User.findOne({ email: email }) }
+
+exports.getUserById = (userId) => { return User.findById(userId) }
 
 exports.checkPassword = async (currentPassword, hashedPassword) => { return await bcrypt.compare(currentPassword, hashedPassword); }
 

@@ -161,6 +161,9 @@ p {
   text-decoration: underline;
 }
 
+h4{
+  color:  white;
+}
 p:hover {
   cursor: pointer;
 }

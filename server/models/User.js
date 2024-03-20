@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    profileImg: {
+        type: String,
+        required: true
+    },
     shoppingCart: [{
         type: mongoose.Types.ObjectId,
         ref: "Phone"

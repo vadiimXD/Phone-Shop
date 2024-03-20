@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/types/User';
+import { UserInfo } from 'src/types/userInformation';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,13 @@ export class UserService {
   logoutHandler() {
     localStorage.clear()
     this.router.navigate(['']);
+  }
+
+  getUser() {
+    const auth = localStorage.getItem("auth") as string
+    const user: User = JSON.parse(auth);
+
+    return this.http.get<UserInfo>(`http://localhost:1337/user/${user.userId}`)
   }
 
 }
