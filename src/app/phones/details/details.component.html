@@ -18,11 +18,11 @@
 
 
                     <ng-container *ngIf="phone?.boughtFrom">
-                        <a class="delete-btn">Delete</a>
+                        <a class="delete-btn" (click)="phoneService.deletePhone(phone?._id)">Delete</a>
                     </ng-container>
                     <ng-container *ngIf="!phone?.boughtFrom">
                         <a class="edit-btn" routerLink="/edit/{{phone?._id}}">Edit</a>
-                        <a class="delete-btn">Delete</a>
+                        <a class="delete-btn" (click)="phoneService.deletePhone(phone?._id)">Delete</a>
                     </ng-container>
                 </ng-container>
 

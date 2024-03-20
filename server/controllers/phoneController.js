@@ -51,6 +51,15 @@ router.post("/edit", async (req, res) => {
     }
 })
 
+router.delete("/delete/:phoneId", async (req, res) => {
+    try {
+        await phonesService.deleteProduct(req.params.phoneId)
+        res.send({ deleted: true })
+    } catch (error) {
+        res.send(false)
+    }
+})
+
 
 
 module.exports = router

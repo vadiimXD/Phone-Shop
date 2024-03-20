@@ -20,3 +20,5 @@ exports.buyProduct = async (productId, userId) => {
     phone.boughtFrom = userId;
       await Phone.findByIdAndUpdate(productId, phone)
 }
+
+exports.deleteProduct = (productId) => { return Phone.findByIdAndDelete(productId) }

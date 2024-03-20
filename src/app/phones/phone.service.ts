@@ -109,7 +109,30 @@ export class PhoneService {
       } else {
         this.data = { field: "Server", message: "Server Error!" }
       }
+
     });
   }
 
+  deletePhone(phoneId: string | undefined) {
+
+    const userString: string | null = localStorage.getItem("auth")
+    const auth: User | null = userString && JSON.parse(userString)
+
+    let options: any = {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': auth?.token
+      }
+    };
+
+    this.http.delete(`http://localhost:1337/delete/${phoneId}`, options).subscribe(data => {
+      if (data) {
+        alert("successfully deleted")
+        return this.router.navigate(["/catalog"])
+      }
+
+      return alert("Error!")
+
+    })
+  }
 }
