@@ -1,9 +1,9 @@
 <section class="search">
     <h1>Search offers</h1>
 
-    <form class="searchForm" action="#" method="">
-        <input type="text" class="search-name" name="" placeholder="Search Name...">
-        <select name="type" class="searc-type" id="type" required ngModel>
+    <form class="searchForm" #searchForm="ngForm" (ngSubmit)="phoneService.searchPhones(searchForm)">
+        <input type="text" class="search-name" name="name" placeholder="Search Name..." ngModel>
+        <select name="type" class="searc-type" id="type" ngModel>
             <option disabled value="">Select type...</option>
             <option>Used</option>
             <option>New</option>
@@ -12,18 +12,22 @@
     </form>
 
 
-    <div >
-        <div class="search-list">    
-            <a href="#" class="electronics">
-                <img src="./image/tablet.webp" class="picture">
-                <h3>Tablet Apple iPad Air 16GB</h3>
-                <span>Price: $92</span>
+    <div>
+        <div class="search-list" *ngIf="phones">
+            <a routerLink="/details/{{phone._id}}" class="electronics" *ngFor="let phone of phones">
+                <img src="{{phone.image}}" class="picture">
+                <h3>{{phone.name}}</h3>
+                <span>Price: ${{phone.price}}</span>
             </a>
+
         </div>
 
     </div>
-   
-    <div class="no-match">
+
+    <div *ngIf="!phones" class="no-match">
         <p>No match was found!</p>
-    </div> 
+    </div>
+
+    <div *ngIf="phoneService.data" class="error">{{phoneService.data.message}}</div>
+
 </section>

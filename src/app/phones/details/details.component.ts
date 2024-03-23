@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
       }
       this.currentUser = JSON.parse(auth)
 
-      if (this.phone.owner._id == this.currentUser?.userId) this.isOwner = true
+      if (this.phone.owner?._id == this.currentUser?.userId) this.isOwner = true
 
     })
   }

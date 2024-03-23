@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup, NgForm, } from '@angular/forms';
 import { errorHandler } from '../../utils/errorHandler'
@@ -7,6 +7,7 @@ import { User } from 'src/types/User';
 import { Phone } from 'src/types/Phone';
 import { ActivatedRoute, Router } from '@angular/router';
 import { authUser } from 'src/types/authUser';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,9 @@ export class PhoneService {
 
   }
 
+
+  private phones$$: any = new BehaviorSubject(null)
+  public phones$ = this.phones$$.asObservable()
 
   createHandler(createForm: NgForm) {
 
@@ -55,9 +59,11 @@ export class PhoneService {
   }
 
   getAllPhones() {
+    const test = this.http.get<Phone[]>("http://localhost:1337/catalog")
+    test.subscribe(data => this.phones$$.next(data))
+
     return this.http.get<Phone[]>("http://localhost:1337/catalog")
   }
-
 
   getPhone(phoneId: string) {
     return this.http.get<Phone>(`http://localhost:1337/details/${phoneId}`)
@@ -134,5 +140,24 @@ export class PhoneService {
       return alert("Error!")
 
     })
+  }
+
+
+
+  searchPhones(searchForm: NgForm) {
+    if (searchForm.invalid) {
+      this.data = errorHandler(searchForm)
+      return
+    }
+
+    let options: any = {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    };
+
+    const phones = this.http.post<Phone[] | undefined>(`http://localhost:1337/search`, searchForm.value, options)
+
+    phones.subscribe(data => this.phones$$.next(data))
   }
 }

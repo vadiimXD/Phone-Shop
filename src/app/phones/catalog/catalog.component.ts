@@ -1,6 +1,8 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PhoneService } from '../phone.service';
 import { Phone } from 'src/types/Phone';
+import { UserService } from 'src/app/user/user.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
@@ -10,15 +12,19 @@ import { Phone } from 'src/types/Phone';
 export class CatalogComponent implements OnInit {
   phones: Phone[] | undefined;
 
-  constructor(private phoneService: PhoneService) {
+  constructor(public phoneService: PhoneService, private userService: UserService) {
 
   }
 
+  get isLogged(): boolean {
+    return this.userService.checkIsLogged
+  }
+
+
   ngOnInit(): void {
-    const phone$ = this.phoneService.getAllPhones()
-    phone$.subscribe(phones => {
-      this.phones = phones
-    })
+    this.phoneService.getAllPhones()
+    this.phoneService.phones$.subscribe((data: Phone[] | undefined) => this.phones = data)
+
   }
 
 

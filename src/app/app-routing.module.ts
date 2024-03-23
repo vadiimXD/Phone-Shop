@@ -12,6 +12,7 @@ import { DetailsComponent } from './phones/details/details.component';
 import { ErrorComponent } from './static/error/error.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { authGuard } from './user/auth.guard';
+import { CartComponent } from './user/cart/cart.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: "search", component: SearchComponent },
   { path: "add/offer", component: CreateComponent, },
   { path: "edit/:offerId", component: EditComponent },
+  { path: "cart", component: CartComponent },
   { path: "details/:offerId", component: DetailsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: "**", component: ErrorComponent },

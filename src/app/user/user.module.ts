@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { CheckDirective } from './check.directive';
 import { RouterModule } from '@angular/router';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -15,13 +16,14 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    CheckDirective
+    CheckDirective,
+    CartComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
-  exports: [RegisterComponent, LoginComponent, ProfileComponent]
+  exports: [RegisterComponent, LoginComponent, ProfileComponent, CartComponent]
 })
 export class UserModule { }

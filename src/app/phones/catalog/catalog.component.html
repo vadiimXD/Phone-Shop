@@ -1,19 +1,20 @@
 <section id="viewCatalog" class="background-img">
     <h1>Catalog</h1>
-    <div class="wrapper-electronics" *ngIf="phones" >
+    <div class="wrapper-electronics" *ngIf="phones">
 
-        <a routerLink="/details/{{phone._id}}"class="electronics" *ngFor="let phone of phones">
-            <img src="{{phone.image}}"
-                class="picture">
+        <a routerLink="/details/{{phone._id}}" class="electronics" *ngFor="let phone of phones">
+            <img src="{{phone.image}}" class="picture">
             <h3>{{phone.name}}</h3>
             <span>Price: ${{phone.price}}</span>
 
-            <mat-icon>add_shopping_cart</mat-icon>
+            <ng-container *ngIf="isLogged">
+                <mat-icon click="addToCart()">add_shopping_cart</mat-icon>
+                <mat-icon>remove_shopping_cart</mat-icon>
+            </ng-container>
         </a>
 
 
     </div>
-
 
     <div class="error" *ngIf="!phones">
         There are no phones found...

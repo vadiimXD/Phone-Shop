@@ -60,6 +60,17 @@ router.delete("/delete/:phoneId", async (req, res) => {
     }
 })
 
+router.post("/search", async (req, res) => {
+
+    try {
+        const phones = await phonesService.searchProducts(req.body.name, req.body.type)
+        console.log(phones)
+        res.json(phones)
+    } catch (error) {
+        res.send(false)
+    }
+})
+
 
 
 module.exports = router

@@ -18,7 +18,27 @@ exports.buyProduct = async (productId, userId) => {
     await User.findByIdAndUpdate(userId, { $push: { boughtList: productId } })
     const phone = await Phone.findById(productId);
     phone.boughtFrom = userId;
-      await Phone.findByIdAndUpdate(productId, phone)
+    await Phone.findByIdAndUpdate(productId, phone)
 }
 
 exports.deleteProduct = (productId) => { return Phone.findByIdAndDelete(productId) }
+
+exports.searchProducts = async (name, type) => {
+    const query = {}
+    if (name) {
+        const nameRegex = new RegExp('^' + name, 'i');
+        query.name = { $regex: nameRegex }
+    }
+
+    if (type) {
+        const typeRegex = new RegExp('^' + type, 'i');
+        query.type = { $regex: typeRegex }
+    }
+
+    if (!name && !type) {
+        return undefined
+    }
+
+    return await Phone.find(query)
+
+}
