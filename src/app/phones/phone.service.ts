@@ -15,7 +15,6 @@ import { BehaviorSubject, tap } from 'rxjs';
 
 export class PhoneService {
   data: Error | null = null
-  phones: Phone[] | undefined;
   constructor(private http: HttpClient, private router: Router, private activeRoutes: ActivatedRoute) {
 
   }
@@ -59,10 +58,9 @@ export class PhoneService {
   }
 
   getAllPhones() {
-    const test = this.http.get<Phone[]>("http://localhost:1337/catalog")
-    test.subscribe(data => this.phones$$.next(data))
-
-    return this.http.get<Phone[]>("http://localhost:1337/catalog")
+    //ToDo OPTIMIZATION!!!!!
+    const catalogPhones = this.http.get<Phone[]>("http://localhost:1337/catalog")
+    catalogPhones.subscribe(data => this.phones$$.next(data))
   }
 
   getPhone(phoneId: string) {
@@ -142,8 +140,6 @@ export class PhoneService {
     })
   }
 
-
-
   searchPhones(searchForm: NgForm) {
     if (searchForm.invalid) {
       this.data = errorHandler(searchForm)
@@ -156,8 +152,8 @@ export class PhoneService {
       }
     };
 
-    const phones = this.http.post<Phone[] | undefined>(`http://localhost:1337/search`, searchForm.value, options)
+    const searchPhones = this.http.post<Phone[] | undefined>(`http://localhost:1337/search`, searchForm.value, options)
 
-    phones.subscribe(data => this.phones$$.next(data))
+    searchPhones.subscribe(data => this.phones$$.next(data))
   }
 }

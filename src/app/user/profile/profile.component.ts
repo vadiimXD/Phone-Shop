@@ -9,11 +9,18 @@ import { UserInfo } from 'src/types/userInformation';
 })
 export class ProfileComponent implements OnInit {
   user: UserInfo | null = null
-  constructor(private userService: UserService) { }
+  isShow: boolean = false;
+  constructor(public userService: UserService) { }
+
   ngOnInit(): void {
-    this.userService.getUser().subscribe(data => {
-      this.user = data
-      console.log(data)
-    })
+    this.userService.hasError = null
+    this.userService.getUser()
+    this.userService.userInfo$.subscribe((data: UserInfo | null) => this.user = data)
+  }
+
+  showEdit() {
+    this.userService.hasError = null
+
+    this.isShow = !this.isShow
   }
 }

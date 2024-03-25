@@ -56,3 +56,4 @@ exports.loginUser = async (body) => {
         email: user.email
     }
 }
+exports.updateProfile = (userId, body) => { return User.findByIdAndUpdate(userId, body) }

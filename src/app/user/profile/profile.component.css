@@ -172,3 +172,28 @@ p:hover {
 .user-email {
   color: White
 }
+
+button {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+mat-icon {
+  color: white;
+}
+
+input {
+  border-radius: 10px;
+
+  border-color: black;
+}
+
+.error {
+  text-decoration: none;
+  color: red;
+}

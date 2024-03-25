@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const authService = require("../services/authService")
-const { getErrorMessage } = require("../utils/errorUtils");
+const { getErlrorMessage } = require("../utils/errorUtils");
 
 router.post("/register", async (req, res) => {
     try {
@@ -26,6 +26,16 @@ router.get("/user/:userId", async (req, res) => {
     try {
         const user = await authService.getUserById(req.params.userId).populate("shoppingCart").populate("createdOffers").populate("boughtList");
         res.json(user)
+    } catch (error) {
+        res.send(false)
+    }
+})
+
+router.post("/edit/user", async (req, res) => {
+    console.log(req.body)
+    try {
+        await authService.updateProfile(req.body.id, { profileImg: req.body.profileImg })
+        res.send({ Edited: true })
     } catch (error) {
         res.send(false)
     }

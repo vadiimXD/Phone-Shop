@@ -4,7 +4,18 @@
             <div class="user-logo">
                 <img class="edit-profile" src="{{user?.profileImg}}">
             </div>
-            <p>Edit picture</p>
+            <p *ngIf="!isShow" (click)="showEdit()">Edit picture</p>
+
+            <ng-container *ngIf="isShow">
+                <form #profileForm="ngForm" (ngSubmit)="userService.editPhoto(profileForm, showEdit.bind(this))">
+                    <input type="text" name="profileImg" ngModel required placeholder="Only work with img links.."
+                        appImage>
+                    <p class="error" *ngIf="userService.hasError">{{userService.hasError.message}}</p>
+                    <button type="submit"> <mat-icon type="submit">check</mat-icon> </button>
+                    <button type="submit"> <mat-icon (click)="showEdit()">close</mat-icon> </button>
+                </form>
+            </ng-container>
+
             <h1 class="user-email">{{user?.username}}</h1>
             <h4>({{user?.email}})</h4>
             <h2 class="offer-count">Total Created Offers: {{user?.createdOffers?.length}}</h2>
@@ -18,8 +29,7 @@
                 <div class="info" *ngFor="let phone of user?.createdOffers">
                     <h2 class="model">{{phone.name}}</h2>
                     <h4 class="type">Type: {{phone.type}}</h4>
-                    <img src="{{phone.image}}"
-                        class="picture">
+                    <img src="{{phone.image}}" class="picture">
                     <div class="more-details">
                         <a routerLink="/details/{{phone._id}}">View Product...</a>
                     </div>

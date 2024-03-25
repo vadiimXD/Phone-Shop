@@ -13,6 +13,7 @@ import { UserModule } from './user/user.module';
 import { StaticModule } from './static/static.module';
 import { PhonesModule } from './phones/phones.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImageDirective } from './validators/image.directive';
 
 
 @NgModule({

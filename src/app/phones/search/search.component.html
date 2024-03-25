@@ -3,11 +3,12 @@
 
     <form class="searchForm" #searchForm="ngForm" (ngSubmit)="phoneService.searchPhones(searchForm)">
         <input type="text" class="search-name" name="name" placeholder="Search Name..." ngModel>
-        <select name="type" class="searc-type" id="type" ngModel>
+        <select name="type" class="searc-type" id="type" ngModel required>
             <option disabled value="">Select type...</option>
             <option>Used</option>
             <option>New</option>
-        </select> <br> <br>
+        </select> <br>
+        <br>
         <button type="submit" class="btn-search">Search</button>
     </form>
 

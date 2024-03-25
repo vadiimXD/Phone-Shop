@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { CheckDirective } from './check.directive';
 import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ImageDirective } from '../validators/image.directive';
 
 
 
@@ -17,12 +19,14 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     ProfileComponent,
     CheckDirective,
-    CartComponent
+    CartComponent,
+    ImageDirective
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatIconModule
   ],
   exports: [RegisterComponent, LoginComponent, ProfileComponent, CartComponent]
 })
