@@ -81,9 +81,9 @@ export class UserService {
 
   getUser() {
 
-    const user: User = this.user
+    const user: User = this?.user
 
-    this.http.get<UserInfo>(`http://localhost:1337/user/${user.userId}`).subscribe(data => this.userInfo$$.next(data))
+    this.http.get<UserInfo>(`http://localhost:1337/user/${user?.userId}`).subscribe(data => this.userInfo$$.next(data))
   }
 
   editPhoto(profileForm: NgForm, showEdit: Function) {

@@ -1,35 +1,56 @@
 <section id="createPage">
     <h1>Add offer</h1>
-    
+
     <form id='create' #createForm="ngForm" (ngSubmit)="phoneService.createHandler(createForm)">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Name..." ngModel required="required" minlength="2">
+        <div class="input-with-icon">
+            <mat-icon>phone_iphone</mat-icon>
+            <input type="text" id="name" name="name" placeholder="Name..." ngModel required="required" minlength="2">
+        </div>
         <label for="type">Type:</label>
         <br>
-        <select name="type" id="type" required ngModel>
-            <option disabled value="">Select type...</option>
-            <option>Used</option>
-            <option>New</option>
-        </select>
+        <div class="input-with-icon">
+            <mat-icon>title</mat-icon>
+            <select name="type" id="type" required ngModel>
+                <option disabled value="">Select type...</option>
+                <option>Used</option>
+                <option>New</option>
+            </select>
+        </div>
         <br>
         <label for="production">Year of Production:</label>
-        <input type="number" id="production" name="year" placeholder="Year of Production..." ngModel required
-            min="1900" max="2025">
+        <div class="input-with-icon">
+            <mat-icon>calendar_month</mat-icon>
+            <input type="number" id="production" name="year" placeholder="Year of Production..." ngModel required
+                min="1900" max="2025">
+        </div>
 
         <label for="damages">Damages:</label>
-        <input type="text" id="damages" name="damages" placeholder="Damages..." ngModel required minlength="2">
+        <div class="input-with-icon">
+            <mat-icon>brightness_high</mat-icon>
+            <input type="text" id="damages" name="damages" placeholder="Damages..." ngModel required minlength="2">
+        </div>
 
         <label for="image">Image:</label>
-        <input type="text" id="image" name="image" placeholder="Image..." ngModel required>
+        <div class="input-with-icon">
+            <mat-icon>image</mat-icon>
+            <input type="text" id="image" name="image" placeholder="Image url..." ngModel required>
+        </div>
 
         <label for="price">Price:</label>
-        <input type="number" id="price" name="price" placeholder="Price..." ngModel required min="0">
+        <div class="input-with-icon">
+            <mat-icon>attach_money</mat-icon>
+            <input type="number" id="price" name="price" placeholder="Price..." ngModel required min="0">
+        </div>
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" placeholder="Description..." ngModel required
-            minlength="7">
+        <div class="input-with-icon">
+            <mat-icon>description</mat-icon>
+            <input type="text" id="description" name="description" placeholder="Description..." ngModel required
+                minlength="7">
+        </div>
 
-        <input type="submit"  class="create" value="Create Offer">
+        <input type="submit" class="create" value="Create Offer">
     </form>
 
     <div *ngIf="phoneService.data" class="error">{{phoneService.data.message}}</div>

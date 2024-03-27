@@ -86,8 +86,8 @@ button:hover {
 }
 
 select {
-height: 50px;
-width: 590px;
+    height: 50px;
+    width: 590px;
 }
 
 select:invalid {
@@ -96,11 +96,11 @@ select:invalid {
 
 option {
     color: black;
-  }
-  
+}
+
 
 .error {
-  position: absolute;
+    position: absolute;
     color: white;
     background: rgba(0, 0, 0, 0.703);
     padding: 40px;
@@ -108,5 +108,4 @@ option {
     font-size: 30px;
     top: 20%;
     border: 2px solid white;
-  }
-  
+}

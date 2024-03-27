@@ -7,6 +7,7 @@ export type Phone = {
     damages: string
     image: string
     description: string
+    shoppingCart: string[]
     year: string
     price: string
     boughtFrom: User

@@ -2,11 +2,19 @@
     <h1>Login</h1>
     <form id='loginForm' #loginForm="ngForm" (ngSubmit)="userService.loginHandler(loginForm)">
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" placeholder="Email" ngModel required>
+        <div class="input-with-icon">
+            <mat-icon>mail</mat-icon>
+            <input type="text" id="email" name="email" placeholder="Email" ngModel required>
+
+        </div>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Password" ngModel required>
+        <div class="input-with-icon">
+            <mat-icon>password</mat-icon>
+            <input type="password" id="password" name="password" placeholder="Password" ngModel required>
+        </div>
 
-        <input type="submit" class="register" value="Login">
+
+        <input type="submit" class="login" value="Login">
     </form>
 </section>

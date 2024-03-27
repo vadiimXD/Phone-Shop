@@ -1,7 +1,7 @@
 import { Phone } from "./Phone"
 
 export type UserInfo = {
-    _id: string
+    _id: any
     username: string
     email: string
     password: string

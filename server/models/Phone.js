@@ -37,6 +37,10 @@ const PhoneSchema = new mongoose.Schema({
         required: true,
         min: 0
     },
+    shoppingCart: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Phone"
+    }],
     boughtFrom: {
         type: mongoose.Types.ObjectId,
         ref: "User"

@@ -42,4 +42,21 @@ router.post("/edit/user", async (req, res) => {
 })
 
 
+router.post("/add/cart", async (req, res) => {
+    try {
+        await authService.addToCart(req.body.userId, req.body.phoneId)
+        res.send({ Added: true })
+    } catch (error) {
+        res.send(false)
+    }
+})
+
+router.post("/remove/cart", async (req, res) => {
+    try {
+        await authService.removeFromCart(req.body.userId, req.body.phoneId)
+        res.send({ Removed: true })
+    } catch (error) {
+        res.send(false)
+    }
+})
 module.exports = router

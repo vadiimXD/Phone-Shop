@@ -89,3 +89,22 @@ option {
   top: 20%;
   border: 2px solid white;
 }
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-icon {
+  position: absolute;
+
+  color: white;
+
+  left: 245px;
+}
+
+.edit:hover{
+  cursor: pointer;
+}

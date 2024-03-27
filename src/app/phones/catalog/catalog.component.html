@@ -2,17 +2,18 @@
     <h1>Catalog</h1>
     <div class="wrapper-electronics" *ngIf="phones">
 
-        <a routerLink="/details/{{phone._id}}" class="electronics" *ngFor="let phone of phones">
-            <img src="{{phone.image}}" class="picture">
+        <div class="electronics" *ngFor="let phone of phones">
+            <img routerLink="/details/{{phone._id}}" src="{{phone.image}}" class="picture">
             <h3>{{phone.name}}</h3>
             <span>Price: ${{phone.price}}</span>
-
-            <ng-container *ngIf="isLogged">
-                <mat-icon click="addToCart()">add_shopping_cart</mat-icon>
-                <mat-icon>remove_shopping_cart</mat-icon>
+  
+            <ng-container *ngIf="phone?.owner?._id !== user?._id">
+                <ng-container *ngIf="isLogged">
+                    <mat-icon   *ngIf="!phone.shoppingCart.includes(user?._id)" class="hover" (click)="phoneService.addToCart(phone._id)">add_shopping_cart</mat-icon>
+                    <mat-icon  *ngIf="phone.shoppingCart.includes(user?._id)" class="hover" (click)="phoneService.removeFromCart(phone._id)">remove_shopping_cart</mat-icon>
+                </ng-container>
             </ng-container>
-        </a>
-
+        </div>
 
     </div>
 

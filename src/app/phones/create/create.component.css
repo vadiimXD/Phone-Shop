@@ -46,6 +46,7 @@
 }
 
 
+
 select {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -94,3 +95,17 @@ h1 {
 
 }
 
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-icon {
+  position: absolute;
+
+  color: white;
+
+  left: 245px;
+}

@@ -85,3 +85,8 @@ section {
     margin: 0;
     color: white;
 }
+img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+
+}

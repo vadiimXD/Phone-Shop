@@ -3,6 +3,7 @@ import { PhoneService } from '../phone.service';
 import { Phone } from 'src/types/Phone';
 import { UserService } from 'src/app/user/user.service';
 import { tap } from 'rxjs';
+import { UserInfo } from 'src/types/userInformation';
 
 @Component({
   selector: 'app-catalog',
@@ -11,7 +12,7 @@ import { tap } from 'rxjs';
 })
 export class CatalogComponent implements OnInit {
   phones: Phone[] | undefined;
-
+  user: UserInfo | undefined;
   constructor(public phoneService: PhoneService, private userService: UserService) {
 
   }
@@ -20,13 +21,11 @@ export class CatalogComponent implements OnInit {
     return this.userService.checkIsLogged
   }
 
-
   ngOnInit(): void {
     this.phoneService.getAllPhones()
+    this.userService.getUser();
     this.phoneService.phones$.subscribe((data: Phone[] | undefined) => this.phones = data)
-
+    this.userService.userInfo$.subscribe((data: UserInfo | undefined) => this.user = data)
   }
-
-
 
 }

@@ -1,45 +1,71 @@
 .registerPage {
-    text-align: center;
-    margin-top: 5px;
-    position: relative;
-    padding-bottom: 6px;
-  }
-  
-  #registerForm {
-    padding-top: 1%;
-    display: inline-block;
-    margin-top: 5%;
-    background: rgba(0, 0, 0, 0.551);
-    width: 40%;
-    border: 1px solid white;
-    border-radius: 20px;
-  }
-  
-  #registerForm label {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: white;
-    font-weight: bold;
-    
-  }
-  
-  #registerForm input {
-    background: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    font-size: 16px;
-  }
-  
-  #registerForm input[type="submit"] {
-      margin-top: 5%;
-      margin-bottom: 5%;
-      width: 40%;
-      font-size: 20px;
-  }
-  
-  h1{
+  text-align: center;
+  margin-top: 5px;
+  position: relative;
+  padding-bottom: 6px;
+}
 
-    font-size: 25px;
-    color: white;
-  
-  }
+#registerForm {
+  padding-top: 1%;
+  display: inline-block;
+  margin-top: 5%;
+  background: rgba(0, 0, 0, 0.551);
+  width: 40%;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+#registerForm label {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+
+}
+
+#registerForm input {
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+
+#registerForm input:hover {
+  background-color: rgb(212, 212, 212);
+
+}
+
+.register:hover {
+  cursor: pointer;
+}
+
+#registerForm input[type="submit"] {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 40%;
+  font-size: 20px;
+}
+
+h1 {
+
+  font-size: 25px;
+  color: white;
+
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-icon {
+  display: flex;
+  position: relative;
+  color: white;
+  left: 34%;
+  text-align: center;
+
+}
