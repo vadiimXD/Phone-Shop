@@ -63,5 +63,77 @@ export function errorHandler(form: NgForm | FormGroup) {
 
 
     }
+    if (form.controls["email"] && form.controls["email"].errors) {
+        if (form.controls["email"].errors["required"]) {
+            return <Error>{
+                message: "Email is required",
+                field: "email"
+            }
+        }
+        if (form.controls["email"].errors["minlength"]) {
+            return <Error>{
+                message: "The email must be 5 symbols at least!",
+                field: "email"
+            }
+        }
+        if (form.controls["email"].errors["Error"]) {
+            return <Error>{
+                message: "Invalid email!",
+                field: "email"
+            }
+        }
+    }
+    if (form.controls["password"] && form.controls["password"].errors) {
+        if (form.controls["password"].errors["required"]) {
+            return <Error>{
+                message: "Password is required",
+                field: "password"
+            }
+        }
+
+        if (form.controls["password"].errors["minlength"]) {
+            return <Error>{
+                message: "The password must be 3 symbols at least!",
+                field: "password"
+            }
+        }
+    }
+    if (form.controls["repassword"] && form.controls["repassword"].errors) {
+        if (form.controls["repassword"].errors["required"]) {
+            return <Error>{
+                message: "Repassword is required",
+                field: "repassword"
+            }
+        }
+
+        if (form.controls["repassword"].errors["minlength"]) {
+            return <Error>{
+                message: "Reppasword must be 3 symbols at least!",
+                field: "repassword"
+            }
+        }
+
+        if (form.controls["repassword"].errors["Error"]) {
+            return <Error>{
+                message: "Passwords dont matches!",
+                field: "repassword"
+            }
+        }
+    }
+    if (form.controls["username"] && form.controls["username"].errors) {
+        if (form.controls["username"].errors["required"]) {
+            return <Error>{
+                message: "Username is required",
+                field: "username"
+            }
+        }
+
+        if (form.controls["username"].errors["minlength"]) {
+            return <Error>{
+                message: "Username must be 2 symbols at least!",
+                field: "username"
+            }
+        }
+    }
     return null
 }

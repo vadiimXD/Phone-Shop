@@ -10,7 +10,6 @@
                 <form #profileForm="ngForm" (ngSubmit)="userService.editPhoto(profileForm, showEdit.bind(this))">
                     <input type="text" name="profileImg" ngModel required placeholder="Only work with img links.."
                         appImage>
-                    <p class="error" *ngIf="userService.hasError">{{userService.hasError.message}}</p>
                     <button type="submit"> <mat-icon type="submit">check</mat-icon> </button>
                     <button type="submit"> <mat-icon (click)="showEdit()">close</mat-icon> </button>
                 </form>

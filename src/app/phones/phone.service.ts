@@ -9,14 +9,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { authUser } from 'src/types/authUser';
 import { BehaviorSubject, tap } from 'rxjs';
 import { UserService } from '../user/user.service';
+import { ErrorMsgService } from '../core/errorMsg/error-msg.service';
+import { ToastService } from '../shared/toast/toast.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class PhoneService {
-  data: Error | null = null
-  constructor(private http: HttpClient, private router: Router, private activeRoutes: ActivatedRoute,private userService:UserService) {
+  constructor(private http: HttpClient, private router: Router, private userService: UserService, private errorMsgService: ErrorMsgService,private toastService:ToastService) {
 
   }
 
@@ -31,11 +32,9 @@ export class PhoneService {
   createHandler(createForm: NgForm) {
 
     if (createForm.invalid) {
-      this.data = errorHandler(createForm)
+      this.errorMsgService.showError(errorHandler(createForm))
       return
     }
-
-    this.data = null
 
     let options: any = {
       headers: {
@@ -56,7 +55,7 @@ export class PhoneService {
       if (data) {
         this.router.navigate(['catalog']);
       } else {
-        this.data = { field: "Server", message: "Server Error!" }
+        this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
       }
     });
 
@@ -83,12 +82,9 @@ export class PhoneService {
 
     this.http.post("http://localhost:1337/buy", { userId: user.userId, phoneId }, options).subscribe((data) => {
       if (data) {
-
         this.router.navigate(['catalog']);
-
       } else {
-        alert("Error")
-        //ToDo
+        this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
       }
     })
   }
@@ -96,11 +92,11 @@ export class PhoneService {
   editPhone(editForm: NgForm, phoneId: string) {
 
     if (editForm.invalid) {
-      this.data = errorHandler(editForm)
+      this.errorMsgService.showError(errorHandler(editForm))
       return
     }
 
-    this.data = null
+
 
 
     const auth: User = this.user
@@ -115,8 +111,9 @@ export class PhoneService {
     this.http.post<Phone>(`http://localhost:1337/edit`, { body: editForm.value, id: phoneId }, options).subscribe((data) => {
       if (data) {
         this.router.navigate([`/details/${phoneId}`])
+        this.toastService.showToast("Successfully edited!")
       } else {
-        this.data = { field: "Server", message: "Server Error!" }
+     this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
       }
 
     });
@@ -140,14 +137,14 @@ export class PhoneService {
         return this.router.navigate(["/catalog"])
       }
 
-      return alert("Error!")
+      return this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
 
     })
   }
 
   searchPhones(searchForm: NgForm) {
     if (searchForm.invalid) {
-      this.data = errorHandler(searchForm)
+      this.errorMsgService.showError(errorHandler(searchForm))
       return
     }
 
@@ -177,7 +174,7 @@ export class PhoneService {
         this.getAllPhones()
         return
       }
-      alert("Error!")
+      this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
     })
   }
 
@@ -199,7 +196,8 @@ export class PhoneService {
         this.userService.getUser()
         return
       }
-      alert("Error!")
+      this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
+
     })
   }
 }

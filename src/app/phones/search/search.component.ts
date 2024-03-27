@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   constructor(public phoneService: PhoneService) { }
 
   ngOnInit(): void {
-    this.phoneService.data = null
+  
     this.phoneService.getAllPhones()
     this.phoneService.phones$.subscribe((data: Phone[] | undefined) => this.phones = data)
   }

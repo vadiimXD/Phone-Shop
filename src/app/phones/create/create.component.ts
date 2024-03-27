@@ -11,6 +11,6 @@ export class CreateComponent implements OnInit {
   constructor(public phoneService: PhoneService) { }
 
   ngOnInit(): void {
-    this.phoneService.data = null
+
   }
 }

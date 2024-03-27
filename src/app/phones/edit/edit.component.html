@@ -36,7 +36,7 @@
         <div class="input-with-icon">
             <mat-icon>image</mat-icon>
             <input type="text" id="image" name="image" placeholder="Image..." ngModel="{{this.phoneInfo?.image}}"
-                required>
+                required appImage>
         </div>
 
         <label for="price">Price:</label>
@@ -57,6 +57,6 @@
     </form>
 
 
-    <div *ngIf="phoneService.data" class="error">{{phoneService.data.message}}</div>
+  
 
 </section>

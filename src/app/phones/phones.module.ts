@@ -9,16 +9,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon'
+import { ImageDirective } from './image.directive';
+
 
 
 
 @NgModule({
-  declarations: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent],
+  declarations: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent, ImageDirective],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
     MatIconModule,
+
   ],
   exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent]
 })

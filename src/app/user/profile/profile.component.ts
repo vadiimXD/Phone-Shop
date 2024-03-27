@@ -13,14 +13,11 @@ export class ProfileComponent implements OnInit {
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.hasError = null
     this.userService.getUser()
     this.userService.userInfo$.subscribe((data: UserInfo | null) => this.user = data)
   }
 
   showEdit() {
-    this.userService.hasError = null
-
     this.isShow = !this.isShow
   }
 }

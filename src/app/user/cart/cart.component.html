@@ -26,8 +26,8 @@
     <ng-container *ngIf="user?.shoppingCart?.length != 0">
         <div class="cart">
             <ul class="cart-list">
-                <li  class="cart-item" *ngFor="let phone of user?.shoppingCart">
-                    <img  routerLink="/details/{{phone._id}}" src="{{phone.image}}" alt="{{phone._id}}">
+                <li class="cart-item" *ngFor="let phone of user?.shoppingCart">
+                    <img routerLink="/details/{{phone._id}}" src="{{phone.image}}" alt="{{phone._id}}">
                     <div class="item-details">
                         <h3>{{phone.name}}</h3>
                         <p>${{phone.price}}</p>

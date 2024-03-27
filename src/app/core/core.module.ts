@@ -7,6 +7,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon'
 import { LoadsService } from './loader/loads.service';
+import { ErrorComponent } from './errorMsg/error.component';
 
 
 
@@ -14,7 +15,8 @@ import { LoadsService } from './loader/loads.service';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,6 @@ import { LoadsService } from './loader/loads.service';
     SharedModule,
     MatIconModule
   ],
-  exports: [HeaderComponent, FooterComponent, LoaderComponent]
+  exports: [HeaderComponent, FooterComponent, LoaderComponent, ErrorComponent]
 })
 export class CoreModule { }

@@ -15,17 +15,16 @@ export class CartComponent implements OnInit {
   totalPrice$$: any = new BehaviorSubject(0)
   constructor(private userService: UserService, public phoneService: PhoneService) { }
   ngOnInit(): void {
-    debugger
     this.totalPrice$$.next(0)
     this.userService.getUser();
     this.userService.userInfo$.subscribe((data: UserInfo | undefined) => {
       this.user = data
-      debugger
-      if (data?.boughtList.length != 0) {
-        debugger
+      
+      if (data?.boughtList?.length != 0) {
+ 
         let price: number = 0
-        data?.shoppingCart.forEach((element: Phone) => {
-          debugger
+        data?.shoppingCart?.forEach((element: Phone) => {
+          
           price += Number(element.price)
         });
         this.totalPrice$$.next(price)

@@ -7,12 +7,13 @@ import { Error } from 'src/types/Error';
 import { User } from 'src/types/User';
 import { UserInfo } from 'src/types/userInformation';
 import { errorHandler } from 'src/utils/errorHandler';
+import { ErrorMsgService } from '../core/errorMsg/error-msg.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  hasError: Error | null = null
+
   private userInfo$$: any = new BehaviorSubject(null)
   public userInfo$ = this.userInfo$$.asObservable()
 
@@ -24,13 +25,13 @@ export class UserService {
     const auth = localStorage.getItem("auth") as string
     return JSON.parse(auth);
   }
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient, private errorMsgService: ErrorMsgService) { }
 
   loginHandler(loginForm: NgForm) {
 
     if (loginForm.invalid) {
-      alert("Ivalid Values")
-      return loginForm.reset()
+      this.errorMsgService.showError(errorHandler(loginForm))
+      return 
     }
 
 
@@ -45,7 +46,8 @@ export class UserService {
         localStorage.setItem("auth", JSON.stringify(data))
         this.router.navigate(['']);
       } else {
-        alert("Invalid values")
+        this.errorMsgService.showError({ field: "Server", message: "Invalid email or password" })
+
       }
     });
   }
@@ -53,8 +55,8 @@ export class UserService {
   registerHandler(registerForm: NgForm) {
 
     if (registerForm.invalid) {
-      alert("Ivalid Values")
-      return registerForm.reset()
+      this.errorMsgService.showError(errorHandler(registerForm))
+      return 
     }
 
     const options = {
@@ -69,7 +71,7 @@ export class UserService {
         this.router.navigate(['']);
 
       } else {
-        alert("Invalid values")
+        this.errorMsgService.showError({ field: "Server", message: "Invalid email or password" })
       }
     });
   }
@@ -88,7 +90,7 @@ export class UserService {
 
   editPhoto(profileForm: NgForm, showEdit: Function) {
     if (profileForm.invalid) {
-      this.hasError = errorHandler(profileForm)
+      this.errorMsgService.showError(errorHandler(profileForm))
       return
     }
 

@@ -34,7 +34,7 @@
         <label for="image">Image:</label>
         <div class="input-with-icon">
             <mat-icon>image</mat-icon>
-            <input type="text" id="image" name="image" placeholder="Image url..." ngModel required>
+            <input type="text" id="image" name="image" placeholder="Image url..." ngModel required appImage>
         </div>
 
         <label for="price">Price:</label>
@@ -53,6 +53,5 @@
         <input type="submit" class="create" value="Create Offer">
     </form>
 
-    <div *ngIf="phoneService.data" class="error">{{phoneService.data.message}}</div>
 
 </section>

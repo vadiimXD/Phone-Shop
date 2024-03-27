@@ -15,7 +15,6 @@ export class EditComponent implements OnInit {
   phoneInfo: Phone | undefined
   phoneId: string = this.activeRoutes.snapshot.params["offerId"];
   ngOnInit(): void {
-    this.phoneService.data = null
     this.phoneService.getPhone(this.phoneId).subscribe(data => {
       this.phoneInfo = data
     })
