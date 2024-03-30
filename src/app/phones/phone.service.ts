@@ -17,7 +17,7 @@ import { ToastService } from '../shared/toast/toast.service';
 })
 
 export class PhoneService {
-  constructor(private http: HttpClient, private router: Router, private userService: UserService, private errorMsgService: ErrorMsgService,private toastService:ToastService) {
+  constructor(private http: HttpClient, private router: Router, private userService: UserService, private errorMsgService: ErrorMsgService, private toastService: ToastService) {
 
   }
 
@@ -83,6 +83,7 @@ export class PhoneService {
     this.http.post("http://localhost:1337/buy", { userId: user.userId, phoneId }, options).subscribe((data) => {
       if (data) {
         this.router.navigate(['catalog']);
+        this.toastService.showToast("Successfully bought!")
       } else {
         this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
       }
@@ -113,7 +114,7 @@ export class PhoneService {
         this.router.navigate([`/details/${phoneId}`])
         this.toastService.showToast("Successfully edited!")
       } else {
-     this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
+        this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
       }
 
     });
@@ -133,7 +134,7 @@ export class PhoneService {
 
     this.http.delete(`http://localhost:1337/delete/${phoneId}`, options).subscribe(data => {
       if (data) {
-        alert("successfully deleted")
+        this.toastService.showToast("Successfully deleted!")
         return this.router.navigate(["/catalog"])
       }
 
@@ -172,6 +173,8 @@ export class PhoneService {
     this.http.post<object>(`http://localhost:1337/add/cart`, { phoneId: id, userId: auth.userId }, options).subscribe(data => {
       if (data) {
         this.getAllPhones()
+        this.toastService.showToast("Successfully added!")
+
         return
       }
       this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
@@ -194,6 +197,8 @@ export class PhoneService {
       if (data) {
         this.getAllPhones()
         this.userService.getUser()
+        this.toastService.showToast("Successfully removed!")
+
         return
       }
       this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })

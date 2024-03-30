@@ -69,6 +69,7 @@
 }
 
 .buttons a {
+    text-decoration: none;
     color: black;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -80,18 +81,20 @@
     padding: 10px;
 }
 
-.buy-btn:hover {
+a.buy-btn:hover {
     cursor: pointer;
-
+    background-color: rgb(212, 212, 212);
 }
 
 
-.delete-btn:hover {
+a.delete-btn:hover {
     cursor: pointer;
+    background-color: rgb(212, 212, 212);
 
 }
 
-.edit-btn:hover {
+a.edit-btn:hover {
     cursor: pointer;
-    background-color: gray;
+    background-color: rgb(212, 212, 212);
+
 }

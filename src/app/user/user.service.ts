@@ -8,6 +8,7 @@ import { User } from 'src/types/User';
 import { UserInfo } from 'src/types/userInformation';
 import { errorHandler } from 'src/utils/errorHandler';
 import { ErrorMsgService } from '../core/errorMsg/error-msg.service';
+import { ToastService } from '../shared/toast/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class UserService {
     const auth = localStorage.getItem("auth") as string
     return JSON.parse(auth);
   }
-  constructor(private router: Router, private http: HttpClient, private errorMsgService: ErrorMsgService) { }
+  constructor(private router: Router, private http: HttpClient, private errorMsgService: ErrorMsgService, private toastService:ToastService) { }
 
   loginHandler(loginForm: NgForm) {
 
@@ -45,6 +46,8 @@ export class UserService {
       if (data) {
         localStorage.setItem("auth", JSON.stringify(data))
         this.router.navigate(['']);
+        this.toastService.showToast("Successfully logged in!")
+
       } else {
         this.errorMsgService.showError({ field: "Server", message: "Invalid email or password" })
 
@@ -69,6 +72,8 @@ export class UserService {
       if (data) {
         localStorage.setItem("auth", JSON.stringify(data))
         this.router.navigate(['']);
+        this.toastService.showToast("Successfully registered!")
+
 
       } else {
         this.errorMsgService.showError({ field: "Server", message: "Invalid email or password" })
@@ -79,6 +84,8 @@ export class UserService {
   logoutHandler() {
     localStorage.clear()
     this.router.navigate(['']);
+    this.toastService.showToast("Successfully logout!")
+
   }
 
   getUser() {

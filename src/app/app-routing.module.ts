@@ -13,6 +13,8 @@ import { ErrorComponent } from './static/error/error.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { authGuard } from './user/auth.guard';
 import { CartComponent } from './user/cart/cart.component';
+import { loginGuard } from './user/login.guard';
+import { ownerGuard } from './phones/owner.guard';
 
 
 const routes: Routes = [
@@ -21,11 +23,11 @@ const routes: Routes = [
   { path: "login", component: LoginComponent, canActivate: [authGuard] },
   { path: "catalog", component: CatalogComponent },
   { path: "search", component: SearchComponent },
-  { path: "add/offer", component: CreateComponent, },
-  { path: "edit/:offerId", component: EditComponent },
+  { path: "add/offer", component: CreateComponent, canActivate: [loginGuard] },
+  { path: "edit/:offerId", component: EditComponent, canActivate: [loginGuard, ownerGuard] },
   { path: "cart", component: CartComponent },
   { path: "details/:offerId", component: DetailsComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [loginGuard] },
   { path: "**", component: ErrorComponent },
 ];
 
