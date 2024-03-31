@@ -10,6 +10,7 @@ import { CreateComponent } from './create/create.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon'
 import { ImageDirective } from './image.directive';
+import { GlobalInterceptor } from '../global.interceptor';
 
 
 
@@ -23,6 +24,6 @@ import { ImageDirective } from './image.directive';
     MatIconModule,
 
   ],
-  exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent]
+  exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent, SearchComponent],
 })
 export class PhonesModule { }

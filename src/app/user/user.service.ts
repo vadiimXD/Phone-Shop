@@ -26,23 +26,16 @@ export class UserService {
     const auth = localStorage.getItem("auth") as string
     return JSON.parse(auth);
   }
-  constructor(private router: Router, private http: HttpClient, private errorMsgService: ErrorMsgService, private toastService:ToastService) { }
+  constructor(private router: Router, private http: HttpClient, private errorMsgService: ErrorMsgService, private toastService: ToastService) { }
 
   loginHandler(loginForm: NgForm) {
 
     if (loginForm.invalid) {
       this.errorMsgService.showError(errorHandler(loginForm))
-      return 
+      return
     }
 
-
-    const options = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-
-    this.http.post<User>("http://localhost:1337/login", loginForm.value, options).subscribe((data) => {
+    this.http.post<User>("http://localhost:1337/login", loginForm.value, {}).subscribe((data) => {
       if (data) {
         localStorage.setItem("auth", JSON.stringify(data))
         this.router.navigate(['']);
@@ -59,16 +52,10 @@ export class UserService {
 
     if (registerForm.invalid) {
       this.errorMsgService.showError(errorHandler(registerForm))
-      return 
+      return
     }
 
-    const options = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-
-    this.http.post<User>("http://localhost:1337/register", registerForm.value, options).subscribe((data) => {
+    this.http.post<User>("http://localhost:1337/register", registerForm.value, {}).subscribe((data) => {
       if (data) {
         localStorage.setItem("auth", JSON.stringify(data))
         this.router.navigate(['']);
@@ -103,20 +90,15 @@ export class UserService {
 
     const user: User = this.user
 
-    const options: object = {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Authorization': user?.token
-      }
-    };
-
-    this.http.post<object | boolean>(`http://localhost:1337/edit/user`, { profileImg: profileForm.value.profileImg, id: user.userId }, options).subscribe(data => {
+    this.http.post<object | boolean>(`http://localhost:1337/edit/user`, { profileImg: profileForm.value.profileImg, id: user.userId }, {}).subscribe(data => {
       if (data) {
         this.getUser()
         showEdit()
+        this.toastService.showToast("Successfully changed!")
         return
       }
-      alert("Error!")
+      this.errorMsgService.showError({ field: "Server", message: "Error!" })
+
     })
 
   }

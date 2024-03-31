@@ -13,6 +13,7 @@ import { UserModule } from './user/user.module';
 import { StaticModule } from './static/static.module';
 import { PhonesModule } from './phones/phones.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GlobalInterceptorProvider } from './global.interceptor';
 
 
 
@@ -35,7 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [GlobalInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

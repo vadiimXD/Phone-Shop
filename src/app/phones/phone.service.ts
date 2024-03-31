@@ -36,22 +36,11 @@ export class PhoneService {
       return
     }
 
-    let options: any = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-
-    const userString: string | null = localStorage.getItem("auth")
-    const auth: User | null = userString && JSON.parse(userString)
-
-    if (auth) {
-      options.headers["X-Authorization"] = auth.token
-    }
+    const auth: User = this.user
 
     createForm.value.owner = auth?.userId
 
-    this.http.post<Phone>("http://localhost:1337/create", createForm.value, options).subscribe((data) => {
+    this.http.post<Phone>("http://localhost:1337/create", createForm.value, {}).subscribe((data) => {
       if (data) {
         this.router.navigate(['catalog']);
       } else {
@@ -73,14 +62,7 @@ export class PhoneService {
 
   buyPhone(user: authUser, phoneId: string | undefined) {
 
-    let options: any = {
-      headers: {
-        'Content-Type': 'application/json',
-        "X-Authorization": user.token
-      }
-    };
-
-    this.http.post("http://localhost:1337/buy", { userId: user.userId, phoneId }, options).subscribe((data) => {
+    this.http.post("http://localhost:1337/buy", { userId: user.userId, phoneId }, {}).subscribe((data) => {
       if (data) {
         this.router.navigate(['catalog']);
         this.toastService.showToast("Successfully bought!")
@@ -97,19 +79,7 @@ export class PhoneService {
       return
     }
 
-
-
-
-    const auth: User = this.user
-
-    let options: any = {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Authorization': auth?.token
-      }
-    };
-
-    this.http.post<Phone>(`http://localhost:1337/edit`, { body: editForm.value, id: phoneId }, options).subscribe((data) => {
+    this.http.post<Phone>(`http://localhost:1337/edit`, { body: editForm.value, id: phoneId }, {}).subscribe((data) => {
       if (data) {
         this.router.navigate([`/details/${phoneId}`])
         this.toastService.showToast("Successfully edited!")
@@ -122,17 +92,7 @@ export class PhoneService {
 
   deletePhone(phoneId: string | undefined) {
 
-
-    const auth: User = this.user
-
-    let options: any = {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Authorization': auth?.token
-      }
-    };
-
-    this.http.delete(`http://localhost:1337/delete/${phoneId}`, options).subscribe(data => {
+    this.http.delete(`http://localhost:1337/delete/${phoneId}`, {}).subscribe(data => {
       if (data) {
         this.toastService.showToast("Successfully deleted!")
         return this.router.navigate(["/catalog"])
@@ -149,13 +109,7 @@ export class PhoneService {
       return
     }
 
-    let options: any = {
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    };
-
-    const searchPhones = this.http.post<Phone[] | undefined>(`http://localhost:1337/search`, searchForm.value, options)
+    const searchPhones = this.http.post<Phone[] | undefined>(`http://localhost:1337/search`, searchForm.value, {})
 
     searchPhones.subscribe(data => this.phones$$.next(data))
   }
@@ -164,13 +118,7 @@ export class PhoneService {
 
     const auth: User = this.user
 
-    let options: object = {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Authorization': auth?.token
-      }
-    };
-    this.http.post<object>(`http://localhost:1337/add/cart`, { phoneId: id, userId: auth.userId }, options).subscribe(data => {
+    this.http.post<object>(`http://localhost:1337/add/cart`, { phoneId: id, userId: auth.userId }, {}).subscribe(data => {
       if (data) {
         this.getAllPhones()
         this.toastService.showToast("Successfully added!")
@@ -183,17 +131,9 @@ export class PhoneService {
 
   removeFromCart(id: string | undefined) {
 
-
     const auth: User = this.user
 
-    let options: object = {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Authorization': auth?.token
-      }
-    };
-
-    this.http.post<object>(`http://localhost:1337/remove/cart`, { phoneId: id, userId: auth.userId }, options).subscribe(data => {
+    this.http.post<object>(`http://localhost:1337/remove/cart`, { phoneId: id, userId: auth.userId }, {}).subscribe(data => {
       if (data) {
         this.getAllPhones()
         this.userService.getUser()
