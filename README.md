@@ -3,6 +3,8 @@
 ## The project idea
 The whole idea of ​​the project is a phone seller at the most basic level.
 
+## Functionality
+The project has functionalities such as search,create,delete,edit,buy and more..
 
 ## Back-End
 for Back-End i used express and mongodb for database.
