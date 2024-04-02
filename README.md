@@ -14,7 +14,8 @@ for Back-End i used express and mongodb for database.
 
 
 ### How to start Back-End server?
-1.First need to download all packages with `npm i` (in Back-End folder).
+1.First need to download all packages with `npm i` (in Back-End folder). 
+
 2.To start Back-End server need to type in terminal or cli `npm start`.
 
 
@@ -24,6 +25,7 @@ This Front-End was created with [Angular CLI](https://github.com/angular/angular
 
 ### How to start Front-End server?
 1.First need to download all packages with `npm i` (in Front-End folder).
+
 2.To start Front-End server need to type in terminal or cli `npm start` or `ng serve`.
 
 ### Build
