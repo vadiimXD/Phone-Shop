@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { LoadsService } from '../../core/loader/loads.service';
 import { UserService } from 'src/app/user/user.service';
 
@@ -7,15 +7,23 @@ import { UserService } from 'src/app/user/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor(public loaderService: LoadsService, private userService:UserService) { }
+  constructor(public loaderService: LoadsService, private userService: UserService) { }
 
   ngOnInit(): void {
- 
+
+ this.loaderService.toggleLoader()
+
   }
+
   get isLogged(): boolean {
     return this.userService.checkIsLogged
   }
 
+  ngAfterViewInit(): void {
+// this.loaderService.toggleLoader()
+
+
+  }
 }

@@ -1,7 +1,9 @@
-<div id="container">
+<div id="container" >
     <app-header />
-    <app-toast/>
+    <app-toast />
     <router-outlet />
     <app-footer *ngIf="!error" />
     <app-errorMsg *ngIf="error" [error]="error" />
 </div>
+
+<app-loader *ngIf="!loaderService.isHidden">

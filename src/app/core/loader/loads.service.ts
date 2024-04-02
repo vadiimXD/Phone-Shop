@@ -5,16 +5,13 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LoadsService {
-  isHidden$$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isHidden: boolean = false
 
-  showLoader() {
-    this.isHidden$$.next(false)
+  toggleLoader() {
+    this.isHidden = true
+    setTimeout(() => {
+      this.isHidden = false
+    }, 500);
   }
-
-  hideLoader() {
-    this.isHidden$$.next(true)
-
-  }
-
 
 }

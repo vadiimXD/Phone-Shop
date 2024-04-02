@@ -31,12 +31,20 @@ export class GlobalInterceptor implements HttpInterceptor {
 
     if (request.method == "POST" || request.method == "PUT" || request.method == "DELETE") {
       const user: User = this.user
-      request = request.clone({
-        setHeaders: {
-          'Content-Type': 'application/json',
-          'X-Authorization': user.token
-        }
-      })
+      if(user){
+        request = request.clone({
+          setHeaders: {
+            'Content-Type': 'application/json',
+            'X-Authorization': user.token
+          }
+        })
+      } else {
+        request = request.clone({
+          setHeaders: {
+            'Content-Type': 'application/json',
+          }
+        })
+      }
     }
     return next.handle(request);
   }
