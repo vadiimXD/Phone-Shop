@@ -14,8 +14,9 @@ import { LoadsService } from 'src/app/core/loader/loads.service';
 export class CartComponent implements OnInit {
   user: UserInfo | undefined;
   totalPrice$$: any = new BehaviorSubject(0)
-  constructor(private userService: UserService, public phoneService: PhoneService, private loadService: LoadsService) {}
+  constructor(private userService: UserService, public phoneService: PhoneService, private loadService: LoadsService) { }
   ngOnInit(): void {
+
     this.totalPrice$$.next(0)
     this.userService.getUser();
     this.userService.userInfo$.subscribe((data: UserInfo | undefined) => {

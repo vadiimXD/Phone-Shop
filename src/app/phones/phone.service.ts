@@ -43,6 +43,7 @@ export class PhoneService {
     this.http.post<Phone>("http://localhost:1337/create", createForm.value, {}).subscribe((data) => {
       if (data) {
         this.router.navigate(['catalog']);
+        this.toastService.showToast("Successfully created!")
       } else {
         this.errorMsgService.showError({ field: "Server", message: "An error occurred during the request! Try again!" })
       }

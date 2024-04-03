@@ -14,7 +14,7 @@
 
 
     <div>
-        <div class="search-list" *ngIf="phones">
+        <div class="search-list" *ngIf="phones?.length !=0">
             <a routerLink="/details/{{phone._id}}" class="electronics" *ngFor="let phone of phones">
                 <img src="{{phone.image}}" class="picture">
                 <h3>{{phone.name}}</h3>
@@ -25,8 +25,8 @@
 
     </div>
 
-    <div *ngIf="!phones" class="no-match">
-        <p>No match was found!</p>
+    <div *ngIf="phones?.length==0" class="no-match">
+        <p>No phones was found!</p>
     </div>
 
 

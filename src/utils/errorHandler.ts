@@ -4,6 +4,14 @@ import { Error } from "src/types/Error";
 export function errorHandler(form: NgForm | FormGroup) {
 
     if (form.controls["name"] && form.controls["name"].errors) {
+
+        if (form.controls["name"].errors["minlength"]) {
+            return <Error>{
+                message: "Name must be 2 symbols at least!",
+                field: "name"
+            }
+        }
+
         return <Error>{
             message: "Invalid name!",
             field: "name"
@@ -22,6 +30,14 @@ export function errorHandler(form: NgForm | FormGroup) {
         }
     }
     if (form.controls["damages"] && form.controls["damages"].errors) {
+
+        if (form.controls["damages"].errors["minlength"]) {
+            return <Error>{
+                message: "Damages must be 2 symbols at least!",
+                field: "damages"
+            }
+        }
+
         return <Error>{
             message: "Damages fields is required!",
             field: "damages"
@@ -40,6 +56,14 @@ export function errorHandler(form: NgForm | FormGroup) {
         }
     }
     if (form.controls["description"] && form.controls["description"].errors) {
+
+        if (form.controls["description"].errors["minlength"]) {
+            return <Error>{
+                message: "Description must be 7 symbols at least!",
+                field: "description"
+            }
+        }
+
         return <Error>{
             message: "Invalid description!",
             field: "description"

@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
- this.loaderService.toggleLoader()
 
   }
 
@@ -22,7 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-// this.loaderService.toggleLoader()
+    // this.loaderService.toggleLoader()
 
 
   }

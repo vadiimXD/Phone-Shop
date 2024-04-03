@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: "search", component: SearchComponent },
   { path: "add/offer", component: CreateComponent, canActivate: [loginGuard] },
   { path: "edit/:offerId", component: EditComponent, canActivate: [loginGuard, ownerGuard] },
-  { path: "cart", component: CartComponent },
+  { path: "cart", component: CartComponent, canActivate: [loginGuard] },
   { path: "details/:offerId", component: DetailsComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [loginGuard] },
   { path: "**", component: ErrorComponent },
